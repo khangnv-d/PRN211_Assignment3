@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BusinessObject.MemberObject>
+
+<div class="container p-3">
+    <div class="row pt-4">
+
+        <div class="col-6">
+            <h2 class="text-primary">Member List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Member" asp-action="Create" class="btn btn-primary">Add New Member</a>
+        </div>
+    </div>
+
+    <form asp-controller="Member" asp-action="SearchByMemberEmail">
+        <p>
+            Email: <input type="text" name="memEmail" />
+            <input class=" btn btn-success" type="submit" value="Search" />
+        </p>
+    </form>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Company Name
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th>
+                        Password
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var mem in Model)
+                {
+                    <tr>
+                        <td width="15%">@mem.Email</td>
+                        <td width="15%">@mem.CompanyName</td>
+                        <td width="15%">@mem.City</td>
+                        <td width="15%">@mem.Country</td>
+                        <td width="15%">@mem.Password</td>
+
+                        <td width="25%">
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="Member" asp-action="Update" asp-route-Id="@mem.MemberId" class="btn btn-primary mx-1">Update</a>
+                                <a asp-controller="Member" asp-action="Delete" asp-route-Id="@mem.MemberId" class="btn btn-danger mx-1">Delete</a>
+
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p> No Member </p>
+    }
+
+</div>
+

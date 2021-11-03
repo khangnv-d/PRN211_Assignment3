@@ -1,0 +1,75 @@
+﻿@model BusinessObject.MemberObject
+
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Add Member</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="Email"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="CompanyName"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="City"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="Country"></label>
+                    </div>
+                    <div class="col-2">
+                        <label asp-for="Password"></label>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="CompanyName" class="form-control" />
+                        <span asp-validation-for="CompanyName" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="Country" class="form-control" />
+                        <span asp-validation-for="Country" class="text-danger"></span>
+                    </div>
+                    <div class="col-2">
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+

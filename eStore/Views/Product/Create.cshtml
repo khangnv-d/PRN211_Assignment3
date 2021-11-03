@@ -1,0 +1,71 @@
+﻿@model BusinessObject.ProductObject
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Add New Product</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="CategoryId"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="ProductName"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <select asp-for="CategoryId" name="CategoryId">
+                            <option value="">Select a number</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="ProductName" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Weight"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="UnitPrice"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="UnitsInStock"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Weight" class="form-control" />
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="UnitPrice" class="form-control" />
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="UnitsInStock" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-success w-75" value="Create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

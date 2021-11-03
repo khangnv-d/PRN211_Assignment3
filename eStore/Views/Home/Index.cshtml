@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model eStore.Models.LoginRequest
+
+<div class="">
+    <h2>@TempData["Role"]</h2>
+    <h1 class="text-center mt-5">Welcome to ESTORE</h1>
+    <div class="text-center">
+        @Html.ActionLink("Log out", "LogOut", "Login")
+    </div>
+</div>

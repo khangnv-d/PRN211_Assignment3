@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BusinessObject.OrderObject>
+
+<div class="row mt-5">
+    <div class="col-6 d-flex">
+        <h4 class="mb-0"> Order list </h4>
+        <a class="btn btn-primary ml-3" asp-controller="Order" asp-action="CreateOrder" style="height:fit-content">Add new order</a>
+    </div>
+    <div class="col-6">
+        <form class="d-flex justify-content-end" asp-action="SearchById" style="width:100%">          
+            OrderID: <input class="col-8 col-lg-5 mr-2 form-control" name="orderId" />
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>       
+    </div>
+</div>
+<div class="row mt-3 px-3">
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Member Id
+                    </th>
+                    <th>
+                        Order Date
+                    </th>
+                    <th>
+                        Required Date
+                    </th>
+                    <th>
+                        Shipped Date
+                    </th>
+                    <th>
+                        Freight
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                <tr>
+                    <td width="20%">@order.OrderId</td>
+                    <td width="20%">@order.MemberId</td>
+                    <td width="20%">@order.OrderDate</td>
+                    <td width="20%">@order.RequiredDate</td>
+                    <td width="20%">@order.ShippedDate</td>
+                    <td width="20%">@order.Freight</td>
+                    <td>
+                        <div class="w-100 btn-group" role="group">
+                            <a asp-controller="Order" asp-action="Update" asp-route-Id="@order.OrderId" class="btn btn-primary mx-1">Update</a>
+                            <a asp-controller="Order" asp-action="Delete" asp-route-Id="@order.OrderId" class="btn btn-danger mx-1">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No item found</p>
+    }
+</div>
